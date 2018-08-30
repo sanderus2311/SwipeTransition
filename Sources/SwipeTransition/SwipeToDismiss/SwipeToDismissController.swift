@@ -92,11 +92,8 @@ extension SwipeToDismissController: UIGestureRecognizerDelegate {
     }
 
     private func baseY(of scrollView: UIScrollView) -> CGFloat {
-        if #available(iOS 11.0, *) {
-            return -scrollView.safeAreaInsets.top
-        } else {
-            return -scrollView.contentInset.top
-        }
+        // TODO: Changed due to bug view extendedLayout
+        return 0
     }
 
     public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
